@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Investigação Criminal</title>
+
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      font-family: Arial, sans-serif;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .board {
+      background: url('https://i.imgur.com/8QZ7Z8R.jpg') center/cover;
+      width: 90%;
+      height: 90%;
+      border: 5px solid #222;
+      position: relative;
+      box-shadow: 0 0 40px rgba(0,0,0,0.9);
+    }
+
+    .item {
+      position: absolute;
+      background: #fff;
+      color: black;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .item:hover {
+      transform: scale(1.1);
+    }
+
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.8);
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: white;
+      color: black;
+      padding: 20px;
+      width: 80%;
+      max-width: 500px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="board">
+
+  <div class="item" style="top:20%; left:20%" onclick="abrir('Introdução à investigação criminal')">
+    🔦 Introdução
+  </div>
+
+  <div class="item" style="top:40%; left:60%" onclick="abrir('Impressões digitais e evidências')">
+    🩹 Digitais
+  </div>
+
+  <div class="item" style="top:70%; left:30%" onclick="abrir('Perícia biológica e DNA')">
+    🧬 DNA
+  </div>
+
+</div>
+
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <h2 id="titulo"></h2>
+    <p id="texto">Conteúdo aqui...</p>
+    <button onclick="fechar()">Fechar</button>
+  </div>
+</div>
+
+<script>
+function abrir(titulo){
+  document.getElementById('modal').style.display = 'flex';
+  document.getElementById('titulo').innerText = titulo;
+}
+
+function fechar(){
+  document.getElementById('modal').style.display = 'none';
+}
+</script>
+
+</body>
+</html>
